@@ -43,7 +43,7 @@
 <button class="button" id="playButton">Play</button>
 <div class="overlay" id="overlay"></div>
 <div class="popup" id="popup">
-  <p>Loading<span id="loadingDots">...</span></p>
+  <p>Loading<span id="loadingDots"></span></p>
 </div>
 <script>
   const playButton = document.getElementById('playButton');
@@ -55,22 +55,14 @@
   playButton.addEventListener('click', () => {
     overlay.style.display = 'block';
     popup.style.display = 'block';
-    loadingDots.innerHTML = '...';
+    loadingDots.innerHTML = '';
 
     dotsInterval = setInterval(() => {
-      if (loadingDots.innerHTML.length >= 5) {
+      loadingDots.innerHTML += '.';
+      if (loadingDots.innerHTML.length > 3) {
         loadingDots.innerHTML = '';
-      } else {
-        loadingDots.innerHTML += '.';
       }
     }, 500); // Change this value to adjust the speed of the moving dots
-
-    // Simulate loading
-    setTimeout(() => {
-      overlay.style.display = 'none';
-      popup.style.display = 'none';
-      clearInterval(dotsInterval);
-    }, 3000); // Change this value to control how long the loading message appears
   });
 </script>
 </body>
