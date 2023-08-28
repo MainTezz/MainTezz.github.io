@@ -18,6 +18,7 @@
     height: 50px;
     background-color: blue;
     position: relative;
+    transition: background-color 0.3s ease-in-out;
   }
 
   #playButton {
@@ -27,6 +28,7 @@
     color: white;
     border: none;
     cursor: pointer;
+    margin-bottom: 20px;
   }
 </style>
 </head>
@@ -38,6 +40,12 @@
     const character = document.getElementById('character');
     const playButton = document.getElementById('playButton');
     let isPlaying = false;
+
+    character.addEventListener('click', () => {
+      if (!isPlaying) {
+        changeCharacterColor();
+      }
+    });
 
     playButton.addEventListener('click', () => {
       if (!isPlaying) {
@@ -52,11 +60,18 @@
 
     function moveCharacter() {
       if (isPlaying) {
-        const newPosition = Math.random() * 200;
-        character.style.left = newPosition + 'px';
-        character.style.top = newPosition + 'px';
+        const newPositionX = Math.random() * (window.innerWidth - 50);
+        const newPositionY = Math.random() * (window.innerHeight - 50);
+        character.style.left = newPositionX + 'px';
+        character.style.top = newPositionY + 'px';
         setTimeout(moveCharacter, 1000);
       }
+    }
+
+    function changeCharacterColor() {
+      const colors = ['#ff6347', '#66cc99', '#ff9900', '#3366ff', '#9933cc'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      character.style.backgroundColor = randomColor;
     }
   </script>
 </body>
