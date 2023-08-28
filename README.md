@@ -9,8 +9,12 @@
 <body>
   <div class="menu">
     <button id="playButton">Play</button>
+    <div id="loadingScreen" class="loading-screen">
+      <div class="loader"></div>
+      <p>Loading...</p>
+    </div>
     <div id="popup" class="popup">
-      <p>The game is currently starting.</p>
+      <p>Done loading...</p>
     </div>
   </div>
   <script src="script.js"></script>
