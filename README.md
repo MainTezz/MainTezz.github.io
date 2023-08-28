@@ -45,12 +45,15 @@
 <div class="popup" id="popup">
   <p>Loading<span id="loadingDots"></span></p>
 </div>
+<audio id="myAudio" src="your-song.mp3"></audio>
 <script>
   const playButton = document.getElementById('playButton');
   const overlay = document.getElementById('overlay');
   const popup = document.getElementById('popup');
   const loadingDots = document.getElementById('loadingDots');
+  const audio = document.getElementById('myAudio');
   let dotsInterval;
+  let isSongPlayed = false;
 
   playButton.addEventListener('click', () => {
     overlay.style.display = 'block';
@@ -61,6 +64,13 @@
       loadingDots.innerHTML += '.';
       if (loadingDots.innerHTML.length > 3) {
         loadingDots.innerHTML = '';
+      }
+      
+      // Play the song after 10 seconds
+      if (!isSongPlayed && loadingDots.innerHTML.length > 20) {
+        isSongPlayed = true;
+        clearInterval(dotsInterval);
+        audio.play();
       }
     }, 500); // Change this value to adjust the speed of the moving dots
   });
