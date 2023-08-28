@@ -1,4 +1,4 @@
-<html lang="en">
+[<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,7 +59,7 @@
     overlay.style.display = 'block';
     popup.style.display = 'block';
     loadingDots.innerHTML = '';
-
+    
     dotsInterval = setInterval(() => {
       loadingDots.innerHTML += '.';
       if (loadingDots.innerHTML.length > 3) {
@@ -87,3 +87,4 @@
 </script>
 </body>
 </html>
+](https://www.youtube.com/watch?v=zXX0w0FKR_s)https://www.youtube.com/watch?v=zXX0w0FKR_s
