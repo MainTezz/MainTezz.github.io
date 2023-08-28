@@ -70,7 +70,17 @@
       if (!isSongPlayed && loadingDots.innerHTML.length > 20) {
         isSongPlayed = true;
         clearInterval(dotsInterval);
-        playerDiv.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/zXX0w0FKR_s?autoplay=1" frameborder="0" allowfullscreen></iframe>';
+
+        // Create an iframe for the YouTube video
+        const iframe = document.createElement('iframe');
+        iframe.width = '560';
+        iframe.height = '315';
+        iframe.src = 'https://www.youtube.com/embed/zXX0w0FKR_s?autoplay=1';
+        iframe.frameBorder = '0';
+        iframe.allowFullscreen = true;
+
+        // Append the iframe to the player div
+        playerDiv.appendChild(iframe);
       }
     }, 500); // Change this value to adjust the speed of the moving dots
   });
