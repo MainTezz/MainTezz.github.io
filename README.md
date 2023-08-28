@@ -12,9 +12,6 @@
       <div class="loader"></div>
       <p>Loading...</p>
     </div>
-    <div id="popup" class="popup">
-      <p>Done loading...</p>
-    </div>
   </div>
   <script src="script.js"></script>
 </body>
