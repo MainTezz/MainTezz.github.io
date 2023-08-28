@@ -42,7 +42,7 @@
 <button class="button" id="playButton">Play</button>
 <div class="overlay" id="overlay"></div>
 <div class="popup" id="popup">
-  Loading, please don't close this popup.
+  Loading..
 </div>
 <script>
   const playButton = document.getElementById('playButton');
