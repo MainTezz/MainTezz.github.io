@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -45,13 +46,13 @@
 <div class="popup" id="popup">
   <p>Loading<span id="loadingDots"></span></p>
 </div>
-<audio id="myAudio" src="[your-song.mp3](https://www.youtube.com/watch?v=zXX0w0FKR_s)"></audio>
+<div id="player"></div>
 <script>
   const playButton = document.getElementById('playButton');
   const overlay = document.getElementById('overlay');
   const popup = document.getElementById('popup');
   const loadingDots = document.getElementById('loadingDots');
-  const audio = document.getElementById('myAudio');
+  const playerDiv = document.getElementById('player');
   let dotsInterval;
   let isSongPlayed = false;
 
@@ -65,12 +66,12 @@
       if (loadingDots.innerHTML.length > 3) {
         loadingDots.innerHTML = '';
       }
-      
-      // Play the song after 10 seconds
+
+      // Play the YouTube video after 10 seconds
       if (!isSongPlayed && loadingDots.innerHTML.length > 20) {
         isSongPlayed = true;
         clearInterval(dotsInterval);
-        audio.play();
+        playerDiv.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/zXX0w0FKR_s?autoplay=1" frameborder="0" allowfullscreen></iframe>';
       }
     }, 500); // Change this value to adjust the speed of the moving dots
   });
